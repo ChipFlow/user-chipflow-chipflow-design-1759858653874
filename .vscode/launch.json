@@ -1,0 +1,53 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "ChipFlow: Build and Run Simulation",
+      "type": "node-terminal",
+      "request": "launch",
+      "command": "pdm chipflow sim build && pdm chipflow sim run",
+      "cwd": "${workspaceFolder}",
+      "presentation": {
+        "hidden": false,
+        "group": "chipflow",
+        "order": 1
+      }
+    },
+    {
+      "name": "ChipFlow: Run Simulation (skip build)",
+      "type": "node-terminal",
+      "request": "launch",
+      "command": "pdm chipflow sim run",
+      "cwd": "${workspaceFolder}",
+      "presentation": {
+        "hidden": false,
+        "group": "chipflow",
+        "order": 2
+      }
+    },
+    {
+      "name": "ChipFlow: Build Simulation Only",
+      "type": "node-terminal",
+      "request": "launch",
+      "command": "pdm chipflow sim build",
+      "cwd": "${workspaceFolder}",
+      "presentation": {
+        "hidden": false,
+        "group": "chipflow",
+        "order": 3
+      }
+    },
+    {
+      "name": "ChipFlow: Generate Verilog",
+      "type": "node-terminal",
+      "request": "launch",
+      "command": "pdm chipflow build",
+      "cwd": "${workspaceFolder}",
+      "presentation": {
+        "hidden": false,
+        "group": "chipflow",
+        "order": 4
+      }
+    }
+  ]
+}

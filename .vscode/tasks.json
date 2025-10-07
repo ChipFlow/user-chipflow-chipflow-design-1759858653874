@@ -1,0 +1,82 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "ChipFlow: Build Simulation",
+      "type": "shell",
+      "command": "pdm",
+      "args": ["chipflow", "sim", "build"],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared",
+        "showReuseMessage": false,
+        "clear": false
+      },
+      "problemMatcher": [],
+      "detail": "Build the ChipFlow simulation (pdm chipflow sim build)"
+    },
+    {
+      "label": "ChipFlow: Run Simulation",
+      "type": "shell",
+      "command": "pdm",
+      "args": ["chipflow", "sim", "run"],
+      "group": {
+        "kind": "test",
+        "isDefault": true
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared",
+        "showReuseMessage": false,
+        "clear": false
+      },
+      "problemMatcher": [],
+      "detail": "Run the ChipFlow simulation (pdm chipflow sim run)",
+      "dependsOn": ["ChipFlow: Build Simulation"]
+    },
+    {
+      "label": "ChipFlow: Build and Run",
+      "dependsOn": ["ChipFlow: Build Simulation", "ChipFlow: Run Simulation"],
+      "dependsOrder": "sequence",
+      "group": "test",
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
+      "problemMatcher": [],
+      "detail": "Build and run ChipFlow simulation"
+    },
+    {
+      "label": "ChipFlow: Generate Verilog",
+      "type": "shell",
+      "command": "pdm",
+      "args": ["chipflow", "build"],
+      "group": "build",
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared",
+        "showReuseMessage": false,
+        "clear": false
+      },
+      "problemMatcher": [],
+      "detail": "Generate Verilog from design (pdm chipflow build)"
+    },
+    {
+      "label": "ChipFlow: Clean",
+      "type": "shell",
+      "command": "make",
+      "args": ["clean"],
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared",
+        "showReuseMessage": false
+      },
+      "problemMatcher": [],
+      "detail": "Clean build artifacts"
+    }
+  ]
+}
